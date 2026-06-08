@@ -1,4 +1,6 @@
 /* General Reset */
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Oleo+Script+Swash+Caps:wght@400;700&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -30,8 +32,8 @@ html {
 }
 
 .logo {
-  font-size: 30px;
-  font-family: "Striper", sans-serif;
+  font-size: 35px;
+   font-family: "Lobster Two", sans-serif;
   font-weight: bold;
   color: #ff3b3b;
   letter-spacing: 0.5px;
@@ -39,6 +41,12 @@ html {
 .logo a{
   text-decoration: none;
   color: #ff3b3b;
+}
+.k-letter{
+  font-family: "Oleo Script Swash Caps", system-ui;
+  font-weight: 700;
+  font-style: normal;
+
 }
 .logo span {
   color: black;

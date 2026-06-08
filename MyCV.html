@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kushal Timsina — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:     #1A1A1A;
+    --soft:    #6B7280;
+    --pale:    #F4F3F0;
+    --rule:    #E5E2DC;
+    --accent:  #2D4A3E;
+    --accent2: #C8B99A;
+    --white:   #FFFFFF;
+  }
+
+  body {
+    background: #DEDAD4;
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 48px 16px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    background: var(--white);
+    display: grid;
+    grid-template-rows: auto 1fr;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.14), 0 4px 16px rgba(0,0,0,0.08);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--accent);
+    padding: 44px 52px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+  }
+
+  .header-left { flex: 1; }
+
+  .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+
+  .name span { color: var(--accent2); }
+
+  .role {
+    margin-top: 10px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .header-contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+  }
+
+  .hc-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+  }
+
+  .hc-item svg { opacity: 0.5; flex-shrink: 0; }
+
+  /* ── BODY ── */
+  .body {
+    display: grid;
+    grid-template-columns: 1fr 52%;
+    gap: 0;
+  }
+
+  /* ── LEFT COL ── */
+  .left {
+    padding: 40px 36px 44px 52px;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  /* ── RIGHT COL ── */
+  .right {
+    padding: 40px 48px 44px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+  }
+
+  /* ── SECTION HEADING ── */
+  .s-label {
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .s-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ── PROFILE ── */
+  .profile-text {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--soft);
+    line-height: 1.85;
+  }
+
+  /* ── SKILLS ── */
+  .skill-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .skill-chip {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--pale);
+    padding: 5px 11px;
+    border: 1px solid var(--rule);
+    letter-spacing: 0.3px;
+  }
+
+  /* ── LANGUAGES ── */
+  .lang-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .lang-row:last-child { border-bottom: none; }
+
+  .lang-name { font-size: 12px; color: var(--ink); font-weight: 400; }
+
+  .lang-level {
+    font-size: 9px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--soft);
+  }
+
+  /* ── STRENGTHS ── */
+  .strength-list { display: flex; flex-direction: column; gap: 9px; }
+
+  .str-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--soft);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .str-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent2);
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-block {
+    padding: 14px 16px;
+    background: var(--pale);
+    border-left: 2px solid var(--accent);
+  }
+
+  .edu-deg { font-size: 13px; font-weight: 500; color: var(--ink); }
+  .edu-sub {
+    margin-top: 3px;
+    font-size: 10.5px;
+    color: var(--soft);
+    font-weight: 300;
+    letter-spacing: 0.2px;
+  }
+  .edu-year {
+    margin-top: 7px;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent2);
+  }
+
+  /* ── PROJECTS ── */
+  .proj-list { display: flex; flex-direction: column; gap: 18px; }
+
+
+
+  .proj-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5px;
+  }
+
+  .proj-name { font-size: 13px; font-weight: 500; color: var(--ink); }
+
+  .proj-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+
+  .proj-tag {
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(45,74,62,0.08);
+    padding: 2px 7px;
+  }
+
+  .proj-desc {
+    font-size: 11px;
+    color: var(--soft);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ── TRAINING ── */
+  .train-block {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .train-name { font-size: 13px; font-weight: 500; color: var(--ink); }
+  .train-desc { font-size: 11px; color: var(--soft); font-weight: 300; line-height: 1.65; }
+
+  /* ── HOBBIES ── */
+  .hobby-grid { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .hobby-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10.5px;
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--pale);
+    border: 1px solid var(--rule);
+    padding: 5px 11px;
+    letter-spacing: 0.2px;
+  }
+
+  .hobby-chip svg { color: var(--accent); opacity: 0.7; }
+
+  /* ── REFERENCES ── */
+  .ref-note {
+    font-size: 11.5px;
+    font-weight: 300;
+    color: var(--soft);
+    line-height: 1.75;
+    border-left: 2px solid var(--accent2);
+    padding-left: 12px;
+  }
+
+  .ref-note strong { color: var(--ink); font-weight: 500; }
+
+  @media print {
+    body { padding: 0; background: none; }
+    .page { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="name">Kushal <span>Timsina</span></div>
+      <div class="role">Software Developer</div>
+    </div>
+    <div class="header-contacts">
+      <a class="hc-item" href="tel:+9779749227801">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.76a16 16 0 006.29 6.29l1.13-1.13a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +977-9749227801
+      </a>
+      <a class="hc-item" href="mailto:timsinakushal40@gmail.com">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+        timsinakushal40@gmail.com
+      </a>
+      <a class="hc-item" href="https://github.com/Kushal-Timsina" target="_blank">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        github.com/Kushal-Timsina
+      </a>
+      <span class="hc-item">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Buddhashanti-1, Jhapa, Nepal
+      </span>
+      <span class="hc-item">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        DOB: 2065/09/23 (B.S.)
+      </span>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- LEFT -->
+    <div class="left">
+
+      <div>
+        <div class="s-label">Profile</div>
+        <p class="profile-text">
+          Computer Engineering graduate with hands-on experience in programming, web development, and database connectivity. Passionate about building purposeful software and continuously growing technical skills.
+        </p>
+      </div>
+
+      <div>
+        <div class="s-label">Skills</div>
+        <div class="skill-grid">
+          <span class="skill-chip">HTML &amp; CSS</span>
+          <span class="skill-chip">JavaScript</span>
+          <span class="skill-chip">C &amp; C++</span>
+          <span class="skill-chip">Java</span>
+          <span class="skill-chip">C#</span>
+          <span class="skill-chip">SQL</span>
+          <span class="skill-chip">CorelDRAW</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="s-label">Languages</div>
+        <div>
+          <div class="lang-row">
+            <span class="lang-name">Nepali</span>
+            <span class="lang-level">Native</span>
+          </div>
+          <div class="lang-row">
+            <span class="lang-name">English</span>
+            <span class="lang-level">Proficient</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="s-label">Strengths</div>
+        <div class="strength-list">
+          <div class="str-item"><div class="str-dot"></div>Quick learner</div>
+          <div class="str-item"><div class="str-dot"></div>Problem-solving mindset</div>
+          <div class="str-item"><div class="str-dot"></div>Team collaboration</div>
+          <div class="str-item"><div class="str-dot"></div>Adaptable to new technologies</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+
+      <div>
+        <div class="s-label">Education</div>
+        <div class="edu-block">
+          <div class="edu-deg">+2 · Computer Engineering</div>
+          <div class="edu-sub">Shree Adarsha Secondary School, Jaypur, Jhapa · Nepal</div>
+          <div class="edu-year">Completed</div>
+        </div>
+        <div class="edu-block" style="margin-top:10px;">
+          <div class="edu-deg">SEE · Secondary Education Examination</div>
+          <div class="edu-sub">Shree Adarsha Secondary School, Jaypur, Jhapa · Nepal</div>
+          <div class="edu-year">Completed</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="s-label">Projects</div>
+        <div class="proj-list">
+
+          <div class="proj-item">
+            <div class="proj-top">
+              <div class="proj-name">Console Programs</div>
+              <div class="proj-tags">
+                <span class="proj-tag">C</span>
+                <span class="proj-tag">C++</span>
+                <span class="proj-tag">Java</span>
+              </div>
+            </div>
+            <div class="proj-desc">OOP, data structures &amp; algorithm practice through various console-based applications.</div>
+          </div>
+
+          <div class="proj-item">
+            <div class="proj-top">
+              <div class="proj-name">Static Web Pages</div>
+              <div class="proj-tags">
+                <span class="proj-tag">HTML</span>
+                <span class="proj-tag">CSS</span>
+              </div>
+            </div>
+            <div class="proj-desc">Semantic layouts with responsive CSS design, focusing on clean structure and accessibility.</div>
+          </div>
+
+          <div class="proj-item">
+            <div class="proj-top">
+              <div class="proj-name">Database Application</div>
+              <div class="proj-tags">
+                <span class="proj-tag">C#</span>
+                <span class="proj-tag">SQL</span>
+              </div>
+            </div>
+            <div class="proj-desc">Windows Forms desktop application with SQL database connectivity and CRUD operations.</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <div class="s-label">Training</div>
+        <div class="train-block">
+          <div class="train-name">Graphics Designing · CorelDRAW</div>
+          <div class="train-desc">One-month intensive program covering vector illustration, layout composition, and print design fundamentals.</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="s-label">Hobbies &amp; Interests</div>
+        <div class="hobby-grid">
+          <div class="hobby-chip">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="12" y1="7" x2="12" y2="17"/><line x1="7" y1="12" x2="17" y2="12"/></svg>
+            Chess
+          </div>
+          <div class="hobby-chip">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+            Reading
+          </div>
+          <div class="hobby-chip">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01M8 12h.01M16 12h.01"/></svg>
+            Gaming
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="s-label">References</div>
+        <div class="ref-note">
+          Available upon request from the teaching faculty of <strong>Shree Adarsha Secondary School (Adarsha Ma. Vi.), Jaypur, Jhapa, Nepal</strong>.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
